@@ -8,10 +8,16 @@ function onReady (){
 
     // $('#firstNumber').on('submit', )//some function to store number
     // $('#secondNumber').on('submit', )//some function to second number
-    $('plusBtn').on('click', )//store this operator
-    $('minusBtn').on('click', )//store this operator
-    $('multBtn').on('click', )//store this operator
-    $('divBtn').on('click', )//store this operator
-    $('equalBtn').on('submit', )//store this operator
+    $('#plusBtn').on('click', )//store this operator
+    $('#minusBtn').on('click', )//store this operator
+    $('#multBtn').on('click', )//store this operator
+    $('#divBtn').on('click', )//store this operator
+    $('#numberFields').on('equalBtn', equalFunction)//store this operator
+
+}
+
+function equalFunction(){
+
+
 
 }

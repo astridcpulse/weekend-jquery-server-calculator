@@ -29,5 +29,7 @@ DOM
  [] C just clears input fields
  [] POST for operators, variable that stores what type of operator
 
+STYLE
+ [] Make button for operator highlight upon click
 
 *GENERAL NOTE: Do not use eval() to complete this assignment
