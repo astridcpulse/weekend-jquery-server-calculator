@@ -1,0 +1,33 @@
+TODO
+ [] set up server
+    -express
+    -body parser
+    .json packages
+
+DOM
+ [] two input fields
+    -make a form. preventDefault the refreshing
+ [] four operator ( + - * / ) buttons 
+ [] ( = ) button and ( C ) clear button to clear the user inputs  
+ [] Display the result
+ [] List of past calculations AND results
+    - table
+    - scrolling down (oldest calcs on bottom)
+
+ SERVER REQUIREMENTS
+ [] compute the math on server
+    -addition subtraction Multiplication division
+    -when calc is done send a 200 code
+ [] Global array where past calculations are saved as strings
+    -send array over in a GET. Dont store in Client side
+ [] app.post (/operator)
+    - should have an IF statement to direct flow of code depending on what type of operator is sent
+
+ CLIENT SIDE
+ [] handle events for inputs and buttons
+ [] When = is pressed, bundle inputs into Object and send to server with POST
+ [] C just clears input fields
+ [] POST for operators, variable that stores what type of operator
+
+
+*GENERAL NOTE: Do not use eval() to complete this assignment
