@@ -7,7 +7,7 @@ $(document).ready(onReady);
 let opNumObject = {
     // firstNum: 
     // secondNum: 
-    // op:
+    // op: 
 };
 
 function onReady (){
@@ -34,16 +34,27 @@ function equalFunction(evt){
     console.log('equal button working');
     console.log(opNumObject);
 
-    $.ajax({
-        url: '/calculation',
-        method: 'POST',
-        data: opNumObject
-    })
-        .then((response)=>{
-            console.log('in POST');
+    // must select an operator button before POST will send
+    if (opNumObject.hasOwnProperty('op')){
 
+        $.ajax({
+            url: '/calculation',
+            method: 'POST',
+            data: opNumObject
         })
+            .then((response)=>{
+                console.log('in POST');
+                getCalculation();
+            })
+    } 
+    // if no operator button is pressed
+    else {
+        alert('Please select an operator (+, -, *, or / ) before clicking equals button (=) ');
+    }
+}
 
+function getCalculation(){
+    
 }
 
 function opPlusAdder(evt){

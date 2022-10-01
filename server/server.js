@@ -17,6 +17,15 @@ let calcHistory = [];
 
 app.post('/calculation', (req, res) =>{
     calcHistory.push(req.body);
+
+    serverCalc(req.body);
     res.sendStatus(200)
     console.log(calcHistory); //test 
+
 })
+
+// app.get
+
+function serverCalc(){
+
+}
