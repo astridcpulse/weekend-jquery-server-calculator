@@ -24,7 +24,7 @@ DOM
     - should have an IF statement to direct flow of code depending on what type of operator is sent
 
  CLIENT SIDE
- [] handle events for inputs and buttons
+ [x] handle events for inputs and buttons
  [] When = is pressed, bundle inputs into Object and send to server with POST
  [] C just clears input fields
  [] POST for operators, variable that stores what type of operator
