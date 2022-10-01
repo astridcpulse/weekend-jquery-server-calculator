@@ -5,10 +5,10 @@ TODO
     .json packages
 
 DOM
- [] two input fields
+ [x] two input fields
     -make a form. preventDefault the refreshing
- [] four operator ( + - * / ) buttons 
- [] ( = ) button and ( C ) clear button to clear the user inputs  
+ [x] four operator ( + - * / ) buttons 
+ [x] ( = ) button and ( C ) clear button to clear the user inputs  
  [] Display the result
  [] List of past calculations AND results
     - table
@@ -24,10 +24,12 @@ DOM
     - should have an IF statement to direct flow of code depending on what type of operator is sent
 
  CLIENT SIDE
- [] handle events for inputs and buttons
+ [x] handle events for inputs and buttons
  [] When = is pressed, bundle inputs into Object and send to server with POST
  [] C just clears input fields
  [] POST for operators, variable that stores what type of operator
 
+STYLE
+ [] Make button for operator highlight upon click
 
 *GENERAL NOTE: Do not use eval() to complete this assignment
