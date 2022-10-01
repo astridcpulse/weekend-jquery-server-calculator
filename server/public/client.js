@@ -1,8 +1,8 @@
 
-
 console.log('in client');   
 
 $(document).ready(onReady);
+document.addEventListener('DOMContentLoaded', dispHist);
 
 let opNumObject = {
     // firstNum: 
@@ -11,8 +11,6 @@ let opNumObject = {
 };
 
 function onReady (){
-
-    console.log("ready with NODEMON girl!!")
 
     $('#plusBtn').on('click', opPlusAdder)//store this operator
     $('#minusBtn').on('click', opMinusAdder)//store this operator
@@ -45,7 +43,7 @@ function equalFunction(evt){
             .then((response)=>{
                 console.log('in POST');
                 getCalculation();
-            })
+            });
     } 
     // if no operator button is pressed
     else {
@@ -54,6 +52,14 @@ function equalFunction(evt){
 }
 
 function getCalculation(){
+
+    $.ajax ({
+        url: '/calculation',
+        method: 'GET', 
+    })
+        .then((response) => {
+            render(response);
+        });
     
 }
 
@@ -76,3 +82,15 @@ function opMultAdder(evt){
     evt.preventDefault();
     opNumObject.op = '*';
 }
+
+function dispHist(){
+    console.log('hey buyd wahtuop');
+
+    //run a GET to get the history and then display it
+}
+function render(array){
+    $('#total').empty('');
+    $('#total').append(`${array[array.length - 1].servTot}`);
+    // append to the history thats already loaded
+}
+
