@@ -26,6 +26,7 @@ app.post('/calculation', (req, res) =>{
 
 // app.get
 
-function serverCalc(){
-
+// do the calculation and store it
+function serverCalc(object){
+    console.log(Number(object.firstNum));
 }
