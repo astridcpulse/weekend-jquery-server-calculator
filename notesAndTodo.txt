@@ -33,3 +33,8 @@ STYLE
  [] Make button for operator highlight upon click
 
 *GENERAL NOTE: Do not use eval() to complete this assignment
+
+Comeback Notes
+    -can we consolidate all the operator functions into one?
+    -can the global object variable client side be put INTO the 
+    equalFunction and made temporary?

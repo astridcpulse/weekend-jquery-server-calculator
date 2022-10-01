@@ -1,3 +1,5 @@
+
+
 console.log('in client');   
 
 $(document).ready(onReady);
@@ -31,12 +33,16 @@ function equalFunction(evt){
     //tests: object should be fully populated with nums and op
     console.log('equal button working');
     console.log(opNumObject);
-}
 
-function numAdder(evt){
-    evt.preventDefault();
-    // opNumObject.firstNum = $('#firstNumber').val();
-    // opNumObject.secondNum = $('#secondNumber').val();
+    $.ajax({
+        url: '/calculation',
+        method: 'POST',
+        data: opNumObject
+    })
+        .then((response)=>{
+            console.log('in POST');
+
+        })
 
 }
 
