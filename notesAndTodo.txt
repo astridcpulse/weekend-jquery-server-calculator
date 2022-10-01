@@ -5,10 +5,10 @@ TODO
     .json packages
 
 DOM
- [] two input fields
+ [x] two input fields
     -make a form. preventDefault the refreshing
- [] four operator ( + - * / ) buttons 
- [] ( = ) button and ( C ) clear button to clear the user inputs  
+ [x] four operator ( + - * / ) buttons 
+ [x] ( = ) button and ( C ) clear button to clear the user inputs  
  [] Display the result
  [] List of past calculations AND results
     - table

@@ -11,7 +11,8 @@
 </head>
 <body>
     <form id="numberFields">
-
+        <!-- keep an eye on these to see if they work.  -->
+        <!-- will the buttons work the same way in a form? -->
         <h1>SERVER CALCULATOR</h1>
         <input id="firstNumber" type="number" placeholder="first number" required></body>
         <button id ="plusBtn"> + </button>
@@ -20,8 +21,17 @@
         <button id ="divBtn"> / </button>
         <input id="secondNumber" type="number" placeholder="second number" required></body>
         <button id="equalBtn"> = </button>
+        <button id="clearBtn"> C </button>
     </form>
+    <!-- where the total from present calculation will display -->
+    <h2 id="total"> 
 
+    </h2>
+    
+    <!-- where the history of calculations will display -->
+    <ul id="calcHistory">
+
+    </ul>
     
 </body>
 </html>
