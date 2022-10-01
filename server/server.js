@@ -16,15 +16,15 @@ let calcHistory = [];
 
 
 app.post('/calculation', (req, res) =>{
-    // calcHistory.push(req.body);
-
+    // send object to serverCalc function
     serverCalc(req.body);
-    res.sendStatus(200)
-    
-
+    res.sendStatus(202) //sending back "good2go" status
 })
 
 // app.get
+app.get('/calculation', (req, res) => {
+    res.send(calcHistory);
+})
 
 // do the calculation and store it
 function serverCalc(object){
@@ -59,6 +59,7 @@ function serverCalc(object){
             fullCalcChar.servOp = '*';
             break;
     }
+
     // push object to global array calcHistory
     calcHistory.push(fullCalcChar);
     console.log(calcHistory); // test
