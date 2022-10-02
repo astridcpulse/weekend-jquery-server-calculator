@@ -3,6 +3,8 @@ body {
 }
 
 section {
+    width: 700px;
+    height: 200px;
     background-color: white;
     box-shadow: 6px 5px 9px 5px grey;
     margin: 50px 5px 50px 5px;
@@ -41,15 +43,23 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-h2 {
+#total{
     font-family:'Courier New', Courier, monospace;
+    
+}
+#calcHistHeader {
+    font-family:'Courier New', Courier, monospace;
+    margin: 10px;
 }
 
 ul {
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
 }
-
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .blue {
     background-color: #8E96EA;
 }
