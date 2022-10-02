@@ -87,7 +87,23 @@ function dispHist(){
     console.log('hey buyd wahtuop');
 
     //run a GET to get the history and then display it
+
+    $.ajax({
+        url: '/history',
+        method: 'GET'
+    })
+        .then((response) => {
+
+            for( let index of response){
+                $('#calcHistory').append(
+                    `<li> 
+                    ${index.firstServNum} ${index.servOp} ${index.secondServNum} = ${index.servTot}
+                    </li>`
+                )
+            }
+        });
 }
+
 function render(array){
     $('#total').empty('');
     $('#total').append(`${array[array.length - 1].servTot}`);

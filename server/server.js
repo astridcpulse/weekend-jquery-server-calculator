@@ -14,7 +14,6 @@ app.listen(PORT, () =>{
 
 let calcHistory = [];
 
-
 app.post('/calculation', (req, res) =>{
     // send object to serverCalc function
     serverCalc(req.body);
@@ -23,6 +22,10 @@ app.post('/calculation', (req, res) =>{
 
 // app.get
 app.get('/calculation', (req, res) => {
+    res.send(calcHistory);
+})
+
+app.get('/history', (req, res) => {
     res.send(calcHistory);
 })
 
