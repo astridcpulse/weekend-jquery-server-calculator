@@ -112,6 +112,5 @@ function dispHist(){
 function render(array){
     $('#total').empty('');
     $('#total').append(`${array[array.length - 1].servTot}`);
-    // append to the history thats already loaded
+    
 }
-
