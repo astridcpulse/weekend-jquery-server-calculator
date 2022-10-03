@@ -1,8 +1,5 @@
 
-console.log('in client');   
-
 $(document).ready(onReady);
-document.addEventListener('DOMContentLoaded', dispHist);
 
 let opNumObject = {
     // firstNum: 
@@ -11,12 +8,13 @@ let opNumObject = {
 };
 
 function onReady (){
+    dispHist(); //call display history function on page load
 
-    $('#plusBtn').on('click', opPlusAdder)//store this operator
-    $('#minusBtn').on('click', opMinusAdder)//store this operator
-    $('#multBtn').on('click', opMultAdder)//store this operator
-    $('#divBtn').on('click', opDivAdder)//store this operator
-    $('#numberFields').on('click', '#equalBtn', equalFunction)//store this operator
+    $('#plusBtn').on('click', opPlusAdder) //store + operator
+    $('#minusBtn').on('click', opMinusAdder) //store - operator
+    $('#multBtn').on('click', opMultAdder) //store / operator
+    $('#divBtn').on('click', opDivAdder) //store * operator
+    $('#numberFields').on('click', '#equalBtn', equalFunction) //sends inputs to server
 }
 
 //test: should be empty object
@@ -24,8 +22,9 @@ console.log(opNumObject);
 
 function equalFunction(evt){
     evt.preventDefault();
-    opNumObject.firstNum = parseInt($('#firstNumber').val()); //value of first number field in calculator
-    opNumObject.secondNum = parseInt($('#secondNumber').val()); // value of second number field in calculator
+    $('button').removeClass('blue');
+    opNumObject.firstNum = Number($('#firstNumber').val()); //value of first number field in calculator
+    opNumObject.secondNum = Number($('#secondNumber').val()); // value of second number field in calculator
     
     //tests: object should be fully populated with nums and op
     console.log('equal button working');
@@ -61,41 +60,41 @@ function getCalculation(){
             render(response);
         });
 }
-
+// Functions for operator buttons
+// plus
 function opPlusAdder(evt){
     $('button').removeClass('blue');
     evt.preventDefault();
     opNumObject.op = '+';
     $('#plusBtn').addClass('blue');
 }
-
+// minus
 function opMinusAdder(evt){
     $('button').removeClass('blue');
     evt.preventDefault();
     opNumObject.op = '-';
     $('#minusBtn').addClass('blue');
 }
-
+// divide
 function opDivAdder(evt){
     $('button').removeClass('blue');
     evt.preventDefault();
     opNumObject.op = '/';
     $('#divBtn').addClass('blue');
 }
-
+// multiply
 function opMultAdder(evt){
     $('button').removeClass('blue');
     evt.preventDefault();
     opNumObject.op = '*';
     $('#multBtn').addClass('blue');
 }
-
+//function to display calculation history on page load 
 function dispHist(){
     
     //run a GET to get the history and then display it
-
     $.ajax({
-        url: '/history',
+        url: '/calculation',
         method: 'GET'
     })
         .then((response) => {
@@ -103,13 +102,13 @@ function dispHist(){
             for( let index of response){
                 $('#calcHistory').prepend(
                     `<li> 
-                    ${index.firstServNum} ${index.servOp} ${index.secondServNum} = ${index.servTot}
+                    ${index.firstNum} ${index.op} ${index.secondNum} = ${index.servTot}
                     </li>`
                 )
             }
         });
 }
-
+// render the total calculated 
 function render(array){
     $('#total').empty('');
     $('#total').append(`${array[array.length - 1].servTot}`);

@@ -8,62 +8,42 @@ app.use(express.static('./server/public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.listen(PORT, () =>{
-    console.log('we are schlive!!');
+    console.log('we are schlive!!'); //test: shows server is running
 });
 //-----------------------
 
+// global array for storage of all input data and calculated total
 let calcHistory = [];
 
+// POST
 app.post('/calculation', (req, res) =>{
-    // send object to serverCalc function
-    serverCalc(req.body);
+    
+    serverCalc(req.body); // send object to serverCalc function
     res.sendStatus(202) //sending back "good2go" status
 })
 
-// app.get
+// same GET url for both displaying the current answer and displaying the history
 app.get('/calculation', (req, res) => {
     res.send(calcHistory);
 })
 
-app.get('/history', (req, res) => {
-    res.send(calcHistory);
-})
-
-// do the calculation and store it
+// run the calculation and store it
 function serverCalc(object){
-    // create temp object
-    let fullCalcChar = {
-        // firstServNum:
-        // secondServNum:
-        // servOp:
-        // servTot:
-    };
-
-    // put client-sent info into object
-    fullCalcChar.firstServNum = object.firstNum;
-    fullCalcChar.secondServNum = object.secondNum;
-    
-    // calculating servTot and assigning servOp depending on operator selected on client side
+    // calculating servTot and assigning it to the object
     switch(object.op) {
         case '+':
-            fullCalcChar.servTot = Number(object.firstNum) + Number(object.secondNum);
-            fullCalcChar.servOp = '+';
+            object.servTot = Number(object.firstNum) + Number(object.secondNum);
             break;
         case '-':
-            fullCalcChar.servTot= Number(object.firstNum) - Number(object.secondNum);
-            fullCalcChar.servOp = '-';
+            object.servTot= Number(object.firstNum) - Number(object.secondNum);
             break;
         case '/':
-            fullCalcChar.servTot = Number(object.firstNum) / Number(object.secondNum);
-            fullCalcChar.servOp = '/';
+            object.servTot = Number(object.firstNum) / Number(object.secondNum);
             break;
         case '*':
-            fullCalcChar.servTot = Number(object.firstNum) * Number(object.secondNum);
-            fullCalcChar.servOp = '*';
+            object.servTot = Number(object.firstNum) * Number(object.secondNum);
             break;
     }
-
-    // push object to global array calcHistory
-    calcHistory.push(fullCalcChar);
-    console.log(calcHistory); // test
+    calcHistory.push(object);// push object to global array calcHistory
+    console.log(calcHistory); // test: should display items inside calcHistory array
 }

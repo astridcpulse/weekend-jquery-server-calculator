@@ -24,6 +24,7 @@ button {
 
 button:active {
     background-color: blue;
+    
 }
 
 button:active:after {
@@ -45,7 +46,7 @@ h1 {
 
 #total{
     font-family:'Courier New', Courier, monospace;
-    
+
 }
 #calcHistHeader {
     font-family:'Courier New', Courier, monospace;
